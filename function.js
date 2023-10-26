@@ -27,31 +27,6 @@ function PlethGraph(cid, datacb){
   g.plethStarted    =   false;
   g.plethBuffer     =   new Array();
   
-  // devicePixelRatio = window.devicePixelRatio || 1,
-  // backingStoreRatio = g.context.webkitBackingStorePixelRatio ||
-  //                     g.context.mozBackingStorePixelRatio ||
-  //                     g.context.msBackingStorePixelRatio ||
-  //                     g.context.oBackingStorePixelRatio ||
-  //                     g.context.backingStorePixelRatio || 1,
-
-  // ratio = devicePixelRatio / backingStoreRatio;
-  
-
-  // var oldWidth = g.canvas[0].width;
-  // var oldHeight = g.canvas[0].height;
-
-  // g.canvas[0].width = oldWidth * ratio;
-  // g.canvas[0].height = oldHeight * ratio;
-
-  // g.canvas[0].style.width = oldWidth + 'px';
-  // g.canvas[0].style.height = oldHeight + 'px';
-
-  // // now scale the context to counter
-  // // the fact that we've manually scaled
-  // // our canvas element
-  // g.context.scale(ratio, ratio);
-
-  
   /*
   * The call to fill the data buffer using
   * the data callback
