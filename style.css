@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,300,700,900,400italic");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+
+  
+body {
+  font-size: 14px;
+  font-family: 'Jost', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+
+  
+  background-color:white !important;
+  /*-webkit-text-size-adjust: 100%;*/
+  -moz-osx-font-smoothing: grayscale;
+  /*-webkit-font-smoothing: antialiased;*/ 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  
+
+}
+  
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+
+/* ------------ Sidenav CSS ------------- */
+
+@media (max-width: 768px) {
+  #sidenav {
+    width: 100%;
+    height: 60px;
+    background: none; }
+    #sidenav .logo {
+      padding: 10px 20px; }
+      #sidenav .logo a {
+        font-size: 20px; }
+        #sidenav .logo a.nav-icon {
+          display: inline; }
+    #sidenav .menu {
+      display: none; }
+      #sidenav .menu.open {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+        display: block !important; }
+      #sidenav .menu ul {
+        border-top: solid 1px #333; }
+        #sidenav .menu ul li {
+          padding: 6px 5%; } }
+
+/*# sourceMappingURL=app.main.css.map */
+.topnav {
+  background-color: #353535;
+  overflow: hidden;
+  border-bottom:1px solid rgb(169, 167, 167);
+  
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #0b0b0b;
+  color: white;
+}
+.topnav input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 18px;
+}
+.topnav button{
+  
+    float: right;
+    width: 5%;
+    padding: 10px;
+    background: white;
+    color: black;
+    font-size: 13px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    margin-top:7px;
+  
+    
+}
+
+canvas {
+  background: #000000;
+  /* background-image: linear-gradient(to right,  grey 0.5px, transparent 1px), linear-gradient(to bottom, grey 1px, transparent 1px); */
+  /* background-size: 20px 20px; */ 
+}
+.module{
+  display: flex;
+  margin-left:50px;
+  margin-right:10px;
+  padding-top:1px;
+  border-radius: 5px;
+}
+.heart{
+  display: inline;
+  background-color: black;
+  margin-left:10px;
+  width:20vw;
+  
+  border:2px solid black;
+  border-radius: 7px;
+}
+.add{
+  display: inline-block;
+  height:10px;
+  margin-right:100px;
+  
+ 
+}
+#mySelect{
+  width:90px;
+  height:100px;
+}
+button{
+  width:90px;
+  background-color: white;
+}
+
+
+
+.default{
+  background-color: #ddd;
+}
+#start{
+    border: 2px solid black;
+    
+    
+}
+#submit{
+  border: 2px solid black;
+  background-color: white;
+}
+
+.btn{
+    background-color: white;
+    border: 2px solid black;
+    color: #000;
+  }
+  
+.active2 {
+    background-color: #ff0000;
+    color: #fff;
+    
+  }
+
+

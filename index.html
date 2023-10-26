@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    
+    <link rel="stylesheet" href="style.css"  >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost&family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="dsp.js-master/dsp.js"></script>
+    
+   <script src="function.js"></script>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+    
+  </head>
+  <body>
+    
+    
+    
+    </div>
+    
+    <div class="topnav">
+      
+      <a class="active" href="#home">ECG Dashboard</a>
+      
+      <div class="search">
+      <input type="text" placeholder="Search..">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    </div>
+
+    <main class="content-wrapper">
+      <div class="container-fluid">
+       
+      </div>
+    
+    
+    
+    
+    <div style="width: 100%;">
+        
+      
+          
+          <div class="module">
+            <div class="add">
+              <br><br>
+              <h6>Select 3 options</h6>
+              <form id="f1">
+              <select id="mySelect" multiple >
+                <option value="1">lead 1</option>
+                <option value="2">lead 2</option>
+                <option value="3">lead 3</option>
+                <option value="4">lead avr</option>
+                <option value="5">lead avl</option>
+                <option value="6">lead avf</option>
+                <option value="7">lead v1</option>
+                <option value="8">lead v2</option>
+                <option value="9">lead v3</option>
+                <option value="10">lead v4</option>
+                <option value="11">lead v5</option>
+                <option value="12">lead v6</option>
+              </select>
+            </form>
+            <br>
+  
+              <button id="submit" onclick="displayGraphs()">Submit</button>
+            </div>
+          
+            
+          <canvas id="ecg" width="850" height="200" style=" margin-top:30px;border: 1px solid rgb(0, 0, 0); border-radius: 5px; cursor: pointer; width: 850px; height: 200px;">
+              HTML5 Canvas not supported
+          </canvas>
+
+          <div class="heart" style="margin-top: 30px;">
+            <span style="color:green; font-weight:600;">ECG</span>
+            <br>
+            <span style="color:yellow"> PR</span>
+           
+            <sub style="color:yellow; font-size:large">(62)</sub>
+            <i class="fa fa-heart" style="color: #5be651; float:right; "></i>
+            <br>
+            <span style="float:right; font-size:25px; color: #5be651;">BPM</span>
+           
+            <br>
+            <span style="float:right;margin-right:-42px;font-size:82px; color: #5be651;">67</span>
+            <br>
+            <br>
+            <br>
+            <br>
+            <span style="color:#5be651;">V1 - 1.4 mm</span>
+
+          </div>
+        </div>
+         
+        
+        <div class="module">
+          <div class="add">
+            <br>
+            <button id="start" class="btn">Start</button>
+          </div>
+    
+        
+        <canvas id="ecg2" width="850" height="200" style="margin-left:25px;border: 1px solid rgb(0, 0, 0); border-radius: 5px; cursor: pointer; width: 850px; height: 200px;">
+            HTML5 Canvas not supported
+        </canvas>
+      
+
+
+        <div class="heart">
+          <span style="color:yellow; font-size:25px">NIBP</span>
+          
+          <span style="color:yellow;float:right;">AUTO</span>
+          <br>
+          <br>
+          <br>
+          <br>
+          <span style="color:yellow; font-size:60px">115/70</span>
+
+        </div>
+      </div>
+       
+
+      <div class="module">
+        <div class="add">
+          
+          
+        </div>
+      
+      <canvas id="ecg3" width="850" height="200" style="margin-left:115px;border: 1px solid rgb(0, 0, 0); border-radius: 5px; cursor: pointer; width: 850px; height: 200px;">
+          HTML5 Canvas not supported
+      </canvas>
+     
+
+      <div class="heart">
+        <span style="color:rgb(9, 167, 220); font-size: 30px;">SPO <sub>2</sub></span>
+        <span style="float:right; color:rgb(9, 167, 220) ">18:06</span>
+        <br>
+        <br>
+        <br>
+        
+        <br>
+        <span style="float:right; color:rgb(9, 167, 220); font-size:55px; font-weight: 550;">94</span>
+        
+        <br>
+        <span style="color:rgb(9, 167, 220)">71-</span>
+        <br>
+        <span style="color:rgb(9, 167, 220)">RESP</span>
+
+      </div>
+      
+    </div>
+     
+    
+      </div>
+      <script>
+       
+
+        // var can=document.getElementById("ecg2")
+        // var ctx=can.getContext('2d');
+        // ctx.translate(-1,-1);
+       
+        var button1 = document.getElementById("start");
+        var isActive1 = false;
+
+        button1.addEventListener("click", function() {
+         
+          if (isActive1) {
+            button1.classList.remove("active2");
+            button1.classList.add("btn");
+            isActive1 = false;
+            button1.textContent='Start';
+          } else {
+            button1.classList.remove("btn");
+            button1.classList.add("active2");
+            isActive1 = true;
+            button1.textContent='Stop';
+          }
+        });
+
+        const multiSelectWithoutCtrl = ( elemSelector ) => {
+        let options = [].slice.call(document.querySelectorAll(`${elemSelector} option`));
+        options.forEach(function (element) {
+            element.addEventListener("mousedown", 
+                function (e) {
+                    e.preventDefault();
+                    element.parentElement.focus();
+                    this.selected = !this.selected;
+                    return false;
+                }, false );
+        });
+      }
+
+    multiSelectWithoutCtrl('#mySelect')
+
+
+        // var button2 = document.getElementById("leadavr");
+        // var isActive2 = false;
+
+        // button2.addEventListener("click", function() {
+        //   if (isActive2) {
+        //     button2.classList.remove("active2");
+        //     button2.classList.add("btn");
+        //     isActive2 = false;
+        //   } else {
+        //     button2.classList.remove("btn");
+        //     button2.classList.add("active2");
+        //     isActive2 = true;
+        //   }
+        // });
+      
+       
+        
+       
+         
+          
+          function displayGraphs() {
+              var select = document.getElementById("mySelect");
+              var options = select.options;
+              var selectedOptions = [];
+
+
+      
+              // Loop through all the options
+              for (var i = 0; i < options.length; i++) {
+                // Check if the option is selected
+                if (options[i].selected) {
+                  // Add the selected option to the selectedOptions array
+                  selectedOptions.push(options[i].value);
+                }
+              }
+
+              // Check if exactly 3 options were selected
+              if (selectedOptions.length != 3) {
+                alert("Please select exactly 3 options.");
+                return;
+              }
+
+              var a,b,c;
+              fetch('http://localhost:5000/ecg-data',{
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+              })
+                .then(response => response.json())
+                .then(d=>{assign(d,selectedOptions)})
+                .catch(error => console.error(error));
+
+
+              console.log("called");
+              // Display the graphs based on the selected options
+              $("#mySelect").val([]);
+
+              function assign(d,opt){
+
+        
+    
+    
+              a=d.data1;
+              b=d.data2; 
+              c=d.data3;
+              e=d.data4;
+              f=d.data5;
+              g=d.data6;
+              h=d.data7;
+              i=d.data8;
+              j=d.data9;
+              k=d.data10;
+              l=d.data11
+              m=d.data12
+
+              console.log(a);
+              console.log(b);
+              console.log(c);
+              console.log(i);
+              console.log(k);
+
+
+              // var filter = new DSP.BiquadFilter({
+              //   type: "bandpass",
+              //   cutoffLow: 5,
+              //   cutoffHigh: 15,
+              //   sampleRate: 200
+              // });
+
+              // var filteredData = filter.process(a);
+
+              // var panTompkins = new DSP.PanTompkins();
+              // var qrsIndices = panTompkins.getPeaks(filteredData);
+
+              // // Calculate heart rate
+              // var rrIntervals = [];
+              // for (var i = 1; i < qrsIndices.length; i++) {
+              //   var rrInterval = (qrsIndices[i] - qrsIndices[i-1]) / 200; // convert to seconds
+              //   rrIntervals.push(rrInterval);
+              // }
+              // var meanRRInterval = rrIntervals.reduce((a, b) => a + b, 0) / rrIntervals.length;
+              // var heartRate = 60 / meanRRInterval;
+
+              // console.log("Heart rate: " + heartRate.toFixed(0) + " bpm");
+
+              // var ECG_data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+              //                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+              //                 0.08, 0.18, 0.08, 0, 0, 0, 0, 0, 0, -0.04, 
+              //                 -0.08, 0.3, 0.7, 0.3, -0.17, 0.00, 0.04, 0.04, 
+              //                 0.05, 0.05, 0.06, 0.07, 0.08, 0.10, 0.11, 0.11, 
+              //                 0.10, 0.085, 0.06, 0.04, 0.03, 0.01, 0.01, 0.01, 
+              //                 0.01, 0.02, 0.03, 0.05, 0.05, 0.05, 0.03, 0.02, 0, 0, 0];
+              var ECG_data=a;
+
+              var ECG_idx = 0;
+              var lastData = 0;
+                
+              var c1,c2,c3;
+              var x=opt[0];
+              var y=opt[1];
+              var z=opt[2];
+
+              if(x==1)
+                  c1=a;
+              else if(x==2)
+                  c1=b;
+              else if(x==3)
+                  c1=c;
+              else if(x==4)
+                  c1=e;
+              else if(x==5)
+                  c1=f;
+              else if(x==6)
+                  c1=g;
+              else if(x==7)
+                  c1=h;
+              else if(x==8)
+                  c1=i;
+              else if(x==9)
+                  c1=j;
+              else if(x==10)
+                  c1=k;
+              else if(x==11)
+                  c1=l;
+              else if(x==12)
+                  c1=m;
+
+              if(y==1)
+                  c2=a;
+              else if(y==2)
+                  c2=b;
+              else if(y==3)
+                  c2=c;
+              else if(y==4)
+                  c2=e;
+              else if(y==5)
+                  c2=f;
+              else if(y==6)
+                  c2=g;
+              else if(y==7)
+                  c2=h;
+              else if(y==8)
+                  c2=i;
+              else if(y==9)
+                  c2=j;
+              else if(y==10)
+                  c2=k;
+              else if(y==11)
+                  c2=l;
+              else if(y==12)
+                  c2=m;
+
+              if(z==1)
+                  c3=a;
+              else if(z==2)
+                  c3=b;
+              else if(z==3)
+                  c3=c;
+              else if(z==4)
+                  c3=e;
+              else if(z==5)
+                  c3=f;
+              else if(z==6)
+                  c3=g;
+              else if(z==7)
+                  c3=h;
+              else if(z==8)
+                  c3=i;
+              else if(z==9)
+                  c3=j;
+              else if(z==10)
+                  c3=k;
+              else if(z==11)
+                  c3=l;
+              else if(z==12)
+                  c3=m;
+
+
+                console.log(c1);
+                console.log(c2);
+                console.log(c3);
+                // Create a random function that is dependent on the last value
+              function hysteresisRandom(){
+                  lastData += (Math.floor((Math.random() * 5) + 1)-3)/50;
+                  if (Math.abs(lastData) >= 1) lastData = (lastData > 0) ? 1 : -1;
+                  return lastData;
+                }
+
+              ECG_idx=0;
+              function getECG(){
+                  if (ECG_idx++ >= c1 - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = c1[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+              function getECG2(){
+                  if (ECG_idx++ >= c2.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = c2[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+              function getECG3(){
+                  if (ECG_idx++ >= c3.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = c3[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+
+              function getECG4(){
+                  if (ECG_idx++ >= e.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = e[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+              function getECG5(){
+                  if (ECG_idx++ >= f.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = f[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+              function getECG6(){
+                  if (ECG_idx++ >= g.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = g[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+              function getECG7(){
+                  if (ECG_idx++ >= h.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = h[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+              function getECG8(){
+                  if (ECG_idx++ >= i.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = i[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+              function getECG9(){
+                  if (ECG_idx++ >= j.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = j[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+              function getECG10(){
+                  if (ECG_idx++ >= k.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = k[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+              function getECG11(){
+                  if (ECG_idx++ >= l.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = l[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+              function getECG12(){
+                  if (ECG_idx++ >= m.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = m[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+
+              ECG_idx=0;
+              function getECG120(){
+                  if (ECG_idx++ >= i.length - 1) ECG_idx=0;
+                  var output = new Array();
+                  output[0] = i[ECG_idx] + hysteresisRandom()/40;
+                  return output;
+              }
+              var ecg,ecg2,ecg3;
+              ECG_idx=0;
+
+
+
+
+
+
+              $(document).ready(function(){
+                  ecg = new PlethGraph("ecg", getECG);
+                  ecg.speed = 1.5;
+                  ecg.scaleFactor = 1;
+
+                  $("#start").click(function(){
+                      if (ecg.isActive()){
+                      ecg.stop();
+                      }
+                      else
+                        ecg.start();
+                  });
+              });
+
+              $(document).ready(function(){
+                  ecg2 = new PlethGraph("ecg2", getECG2);
+                  ecg2.speed = 1.5;
+                  ecg2.scaleFactor = 0.8;
+
+                  $("#start").click(function(){
+                      if (ecg2.isActive()){
+                      ecg2.stop();
+                      }
+                      else
+                        ecg2.start();
+                  });
+              });
+
+
+
+              $(document).ready(function(){
+                  ecg3 = new PlethGraph("ecg3", getECG3);
+                  ecg3.speed = 1.5;
+                  ecg3.scaleFactor = 0.8;
+
+                  $("#start").click(function(){
+                      if (ecg3.isActive()){
+                      ecg3.stop();
+                      }
+                      else
+                        ecg3.start();
+                  });
+              });
+
+              var ecg4,ecg5,ecg6;
+              $(document).ready(function(){
+                  ecg4 = new PlethGraph("ecg", getECG4);
+                  ecg4.speed = 1.5;
+                  ecg4.scaleFactor = 0.8;
+
+                  $("#leadavr").click(function(){
+                      if (ecg4.isActive()){
+                      ecg4.stop();
+                      }
+                      else
+                        ecg4.start();
+                  });
+              });
+
+              $(document).ready(function(){
+                  ecg5 = new PlethGraph("ecg2", getECG5);
+                  ecg5.speed = 1.5;
+                  ecg5.scaleFactor = 0.8;
+
+                  $("#leadavr").click(function(){
+                      if (ecg5.isActive()){
+                      ecg5.stop();
+                      }
+                      else
+                      ecg5.start();
+                  });
+              });
+
+              $(document).ready(function(){
+                  ecg6 = new PlethGraph("ecg3", getECG6);
+                  ecg6.speed = 1.5;
+                  ecg6.scaleFactor = 0.8;
+
+                  $("#leadavr").click(function(){
+                      if (ecg6.isActive()){
+                      ecg6.stop();
+                      }
+                      else
+                        ecg6.start();
+                  });
+              });
+
+              var ecg7,ecg8,ecg9;
+              ECG_idx=0;
+              lastdata=0;
+              $(document).ready(function(){
+                  ecg7 = new PlethGraph("ecg", getECG7);
+                  ecg7.speed = 1.5;
+                  ecg7.scaleFactor = 0.8;
+
+                  $("#leadv1").click(function(){
+                      if (ecg7.isActive()){
+                      ecg7.stop();
+                      }
+                      else
+                        ecg7.start();
+                  });
+              });
+
+
+
+
+              $(document).ready(function(){
+                  ecg8 = new PlethGraph("ecg2", getECG10);
+                  ecg8.speed = 1.5;
+                  ecg8.scaleFactor = 0.8;
+
+                  $("#leadv1").click(function(){
+                      if (ecg8.isActive()){
+                      ecg8.stop();
+                      }
+                      else
+                        ecg8.start();
+                  });
+              });
+
+              $(document).ready(function(){
+                  ecg9 = new PlethGraph("ecg3", getECG9);
+                  ecg9.speed = 1.5;
+                  ecg9.scaleFactor = 0.8;
+
+                  $("#leadv1").click(function(){
+                      if (ecg9.isActive()){
+                      ecg9.stop();
+                      }
+                      else
+                        ecg9.start();
+                  });
+              });
+
+              var ecg10,ecg11,ecg12;
+              ECG_idx=0;
+              lastdata=0;
+              $(document).ready(function(){
+                  ecg10 = new PlethGraph("ecg", getECG10);
+                  ecg10.speed = 1.5;
+                  ecg10.scaleFactor = 0.8;
+
+                  $("#leadv4").click(function(){
+                      if (ecg10.isActive()){
+                      ecg10.stop();
+                      }
+                      else
+                        ecg10.start();
+                  });
+              });
+
+
+
+
+              $(document).ready(function(){
+                  ecg11 = new PlethGraph("ecg2", getECG11);
+                  ecg11.speed = 1.5;
+                  ecg11.scaleFactor = 0.8;
+
+                  $("#leadv4").click(function(){
+                      if (ecg11.isActive()){
+                      ecg11.stop();
+                      }
+                      else
+                        ecg11.start();
+                  });
+              });
+
+              $(document).ready(function(){
+                  ecg12 = new PlethGraph("ecg3", getECG12);
+                  ecg12.speed = 1.5;
+                  ecg12.scaleFactor = 0.8;
+
+                  $("#leadv4").click(function(){
+                      if (ecg12.isActive()){
+                      ecg12.stop();
+                      }
+                      else
+                        ecg12.start();
+                  });
+              });
+              }   
+
+            }
+
+            function displayGraph1(option) {
+              // Code to display graph 1 based on the selected option
+            }
+
+            function displayGraph2(option) {
+              // Code to display graph 2 based on the selected option
+            }
+
+            function displayGraph3(option) {
+              // Code to display graph 3 based on the selected option
+            }
+      
+        
+      </script>
+    </div>
+ </div>
+</main>
+
+ 
+</footer>
+  </body>
+ </html>
