@@ -2,7 +2,7 @@
 
 The ECG Dashboard offers a state-of-the-art solution for detecting cardiac abnormalities in real-time. It continuously monitors and analyzes the patient's heart activity, providing valuable insights on rhythm, heartbeat, and other significant parameters.
 
-![Dashboard Screenshot](./path_to_screenshot.png)  
+![Dashboard Screenshot](ecg.png)  
 *Screenshot of the ECG Dashboard*
 
 ## Features
