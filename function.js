@@ -1,25 +1,3 @@
-
-            /*
-            * 
-            * Photoplethysmograph (Real Time PPG Grapher)
-            * 
-            *    by: Tso (Peter) Chen
-            * 
-            * 
-            * 
-            * 0.1 - first version
-            * 
-            * 
-            * Absolutely free to use, copy, edit, share, etc.
-            *--------------------------------------------------*/
-              
-              /*
-              * Helper function to convert a number to the graph coordinate
-              * ----------------------------------------------------------- */
-             
-            
-
-
 function convertToGraphCoord(g, num){
   return Math.floor((g.height / 2) * -(num * 0.6) + g.height / 2);
 }
