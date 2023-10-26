@@ -7,17 +7,17 @@ The ECG Dashboard offers a state-of-the-art solution for detecting cardiac abnor
 
 ## Features
 
-- Real-time visualization of ECG data.
-- Early identification of conditions such as myocardial infarction, arrhythmia, and other cardiovascular diseases.
-- Selectable lead options for tailored viewing.
-- Backend integration with a Flask server and a comprehensive ECG database.
-- User-friendly front-end interface optimized for healthcare professionals.
+- **Real-time Visualization**: Display of ECG data for immediate insights.
+- **Early Detection**: Identifies conditions such as myocardial infarction, arrhythmia, and other cardiovascular diseases.
+- **Selectable Lead Options**: Tailor your viewing preferences by choosing specific leads.
+- **Integrated Backend**: Powered by a Flask server integrated with a comprehensive ECG database.
+- **Intuitive Interface**: A front-end design optimized for healthcare professionals.
 
 ## Technology Stack
 
-- **Frontend**: Built using HTML, CSS, and JavaScript.
-- **Backend**: Powered by Flask, a Python web framework, and supplemented with libraries like NumPy and WFDB for ECG data extraction and visualization.
-- **Data Source**: Utilizes a 12-lead ECG database available from the PhysioNet website.
+- **Frontend**: Crafted with HTML, CSS, and JavaScript.
+- **Backend**: Driven by Flask (a Python web framework) and enriched with libraries like NumPy and WFDB for precise ECG data extraction and visualization.
+- **Data Source**: Leverages a 12-lead ECG database from the PhysioNet website.
 
 ## Prerequisites
 
@@ -31,29 +31,24 @@ The ECG Dashboard offers a state-of-the-art solution for detecting cardiac abnor
 
 1. **Install Python**: Download and install Python from the [official website](https://www.python.org/downloads/).
    
-2. **Install Required Python Packages**: Run the command:
+2. **Install Required Python Packages**: Execute the following command:
    ```bash
    pip install flask wfdb numpy flask_cors
 
-### Front-End
+Front-End
+Option 1: Using VS Code's Live Server
+Open the project folder in VS Code.
+Install the Live Server extension.
+Right-click on index.html and select "Open with Live Server".
+Option 2: Using a Web Browser
+Navigate to the project directory and double-click on index.html.
 
-#### Option 1: Using VS Code's Live Server
+Note: Ensure associated resources, like function.js and style.css, reside in the same directory as index.html.
 
-1. Open the project folder in VS Code.
-2. Install the Live Server extension.
-3. Right-click index.html and select "Open with Live Server".
-   
-#### Option 2: Using a Web Browser
-
-1. Locate and double-click index.html in your file explorer.
-Note: Ensure related resources, like function.js and style.css, are in the same directory as index.html.
-
-## Usage
-
-1. Ensure the backend Flask server is running.
-2. Launch the ECG Dashboard.
-3. Use the dropdown menu to select desired ECG leads.
-4. Click "Submit" to display the ECG graphs.
-
-## Contributing
-For contributions or major changes, please open an issue for discussion.
+Usage
+Run the backend Flask server.
+Launch the ECG Dashboard in your preferred browser.
+Select the ECG leads of interest from the dropdown menu.
+Click "Submit" to visualize the ECG graphs.
+Contributing
+We welcome contributions! For major changes or enhancements, please open an issue first to discuss your proposed updates.
